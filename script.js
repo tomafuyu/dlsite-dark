@@ -31,7 +31,8 @@
     $$("div.floorSubNav").style.backgroundColor = b;
 
     // left
-    $$("ul.list_content_text.type-icon").style.backgroundColor = b;
+    if (!location.href.includes("work"))
+        $$("ul.list_content_text.type-icon").style.backgroundColor = b;
 
     $$("#container").style.color = c;
     $$("#wrapper").style.color = c;
