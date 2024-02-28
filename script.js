@@ -12,30 +12,35 @@
 (function() {
     "use strict";
     
-    const $$ = (q, a=false) => a ?
-        document.querySelectorAll(q)
-        : document.querySelector(q);
-    
     /* ===== User Settings ===== */
     const b = "#111";
     const c = "aliceblue";
     /* ===== / User Settings ===== */
+
+    const $$ = (q, a=false) => a ?
+        document.querySelectorAll(q)
+        : document.querySelector(q);
+
+    const setStyle = (e, s, v) => $$(e) && ($$(e).style[s] = v);
+    const setColor = (e) => setStyle(e, "color", c);
+    const setBGC = (e) => setStyle(e, "backgroundColor", b);
+    const setBoth = (e) => {
+        setColor(e);
+        setBGC(e);
+    };
     
-    $$("body").style.color = c;
-    $$("body").style.backgroundColor = b;
+    setBoth("body");
 
     // header
-    $$("input#search_text").style.color = c;
-    $$("input#search_text").style.backgroundColor = b;
-    $$("div.headerCore-mainInner").style.backgroundColor = b;
-    $$("div.floorSubNav").style.backgroundColor = b;
+    setBoth("input#search_text");
+    setBGC("div.headerCore-mainInner");
+    setBGC("div.floorSubNav");
 
     // left
-    if (!location.href.includes("work"))
-        $$("ul.list_content_text.type-icon").style.backgroundColor = b;
+    setBGC("ul.list_content_text.type-icon");
 
-    $$("#container").style.color = c;
-    $$("#wrapper").style.color = c;
+    setColor("#container");
+    setColor("#wrapper");
     
     $$("head").innerHTML += `
         <style>
