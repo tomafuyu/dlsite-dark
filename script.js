@@ -15,6 +15,8 @@
     /* ===== User Settings ===== */
     const b = "#111";
     const c = "aliceblue";
+    const link = "lightskyblue";
+    const hoverBG = "#444";
     /* ===== / User Settings ===== */
 
     const $$ = (q, a=false) => a ?
@@ -47,12 +49,12 @@
             #left li a {
                 color: aliceblue;
                 &:hover {
-                    background-color: #444;
+                    background-color: ${hoverBG};
                 }
             }
             a.work_name,
             .work_name a {
-                color: lightskyblue;
+                color: ${link};
             }
         </style>
     `;
